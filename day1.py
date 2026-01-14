@@ -82,3 +82,19 @@ def main() -> None:
         temp_converted = fahr_to_cel(temp_start)
     else:
         temp_converted = cel_to_fahr(temp_start)
+
+    # report converted temp to the user, along with some hot/cold commentary
+    print(f"That is {round(temp_converted, 2)} in {'C' if start_unit == 'F' else
+'F'}!")
+    hot = temp_start >= CEL_HOT_THRESHOLD if start_unit == "C" else \
+    temp_converted >= CEL_HOT_THRESHOLD
+    cold = temp_start <= CEL_COLD_THRESHOLD if start_unit == "C" else \
+    temp_converted <= CEL_COLD_THRESHOLD
+    if cold:
+        print("brrrrr! Put on a jacket :(")
+    elif hot:
+        print("whew!!! T-shirt and short day :(")
+    else:
+        print("...comfy :)")
+if __name__ == "__main__":
+main()
