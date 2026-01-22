@@ -39,7 +39,7 @@ def read_mileage_input(filename : str) -> dict[str, float]:
         dateline = infile.readline()
         mileline = infile.readline()
 
-        dates = dateline..strip()split(",")
+        dates = dateline.strip().split(",")
         miles = mileline.split(",")
 
         data = {}
@@ -66,6 +66,7 @@ while today_miles < 0:
     today_miles = float(input("Enter again, miles can't be negative!\n"))
     miles[date] = today_miles
     return miles
+
 def generate_mileage_stats(miles: Optional[dict[str, float]]) -> Optional[dict[str,
 float]]:
     ''' compute basic stats from a mileage list: total, avg daily
