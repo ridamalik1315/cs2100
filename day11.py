@@ -24,7 +24,7 @@ V1 of plotting some hockey data. In this version, our function
 takes in just y_values as a parameter, a pd.Series,
 plus the particular plotting function to use. This version's constraints:
 1. can only do plot functions that take y_values only, with no
-x_values (plt.plot() and plt.hist())
+x_values (plt.plot() and pltd.hist())
 2. no customizations are included here, it just plots the line
 Params:
 y_values (pd.Series), the y values to plot
@@ -34,8 +34,7 @@ defaults to plt.plot
 Returns:
 none, just plots
 '''
-def plot_hockey_v2(y_values : pd.Series, x_values : optional[pd.Series] = None,
-                   plot_func : CallLabel[..., Any] = plt.plot, ***kwargs):
+def plot_hockey_v2(y_values : pd.Series, x_values : optional[pd.Series] = None, plot_func : CallLabel[..., Any] = plt.plot, ***kwargs):
     '''
     Call the given plotting function and plot the values.
     In this version, our function takes in both x_values (opt) and y_values
@@ -60,8 +59,7 @@ def plot_hockey_v2(y_values : pd.Series, x_values : optional[pd.Series] = None,
         plot_func(y_values)
     plt.show()
 
-def plot_hockey_v3(y_values : pd.Series, x_values : optional[pd.Series] = None,
-                   plot_func : CallLabel[.., Any] = plt.plot, ***kwargs):
+def plot_hockey_v3(y_values : pd.Series, x_values : optional[pd.Series] = None, plot_func : CallLabel[.., Any] = plt.plot, ***kwargs):
 '''
 Call the given plotting function and plot the values.
 In this version, our function takes in both x_values (opt) and y_values
@@ -126,17 +124,17 @@ def main() -> None:
     # our goal, because plt.plot is the default!)
     plot_hockey_v1(df["attendance"], plot_func = plt.hist)
     plot_hockey_v1(bos_vs_ny["total_goals"])
-    call the second version of our plotting function
-    we call this three times -- a histogram, a line plot, a scatterplot
-    (when we want the line plot using plt.plot, we don't pass an argument
-    for plot_func, b/c plt.plot is the default!)
+    #call the second version of our plotting function
+    #we call this three times -- a histogram, a line plot, a scatterplot
+    #(when we want the line plot using plt.plot, we don't pass an argument
+    #for plot_func, b/c plt.plot is the default!)
     plot_hockey_v2(df["attendance"], plot_func = plt.hist)
     plot_hockey_v2(bos_vs_ny["total_goals"])
     plot_hockey_v2(df["home_goal_count"], x_values = df["attendance"],
     plot_func = plt.scatter)
-    call the third version of our plotting function
-    we call this three times -- a histogram, a line plot, a scatterplot
-    (when we want the line plot using plt.plot, we don't pass an argument
+    #call the third version of our plotting function
+    #we call this three times -- a histogram, a line plot, a scatterplot
+    #(when we want the line plot using plt.plot, we don't pass an argument
     for plot_func, b/c plt.plot is the default!)
     plot_hockey_v3(df["attendance"], plot_func = plt.hist,
     title = "PWHL Attendance over Time (2023-2025)",
@@ -146,8 +144,7 @@ def main() -> None:
     xlabel = "Game Number",
     ylabel = "Total Goals")
     plot_hockey_v3(df["home_goal_count"], x_values = df["attendance"],
-    plot_func = plt.scatter, title = "PWHL Attendance v. Home
-    Goals",
+    plot_func = plt.scatter, title = "PWHL Attendance v. Home, Goals,"
     xlabel = "Attendance",
     ylabel = "Goals by Home Team")
 if __name__ == "__main__":
