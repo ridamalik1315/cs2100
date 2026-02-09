@@ -22,7 +22,7 @@ import requests
 
 API_KEY = "oTJoawrcJUxpuADLS55SwD14rZdJz3cIwTL1aZdb"
 BASE_URL = "https://api.nasa.gov/planetary/apod"
-DATES = ["2007-10-06"]
+DATES = ["2007-10-06","2026-02-08"]
 
 def request_api(base_url: str, params: dict[str, str]) -> Optional[Any]:
     ''' request (get) an API from a URL, and return json data
