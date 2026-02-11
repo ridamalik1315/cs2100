@@ -129,6 +129,16 @@ def get_seconds(person: str, connections: dict[str, list[str]]) -> set[str]:
     valueError if dictionary is empty
     valueError if person is the empty string
     '''
+
+    if not connections or not person:
+        raise ValueError("need person and dictionary to find connex")
+    
+    seconds = set()
+    for con in connections.values():
+        for second in con:
+            if second not in connections and second != person:
+                seconds.add(second)
+    return seconds
 pass
 # write a class to represent a Book. It should have attributes for
 # title, author, and number of pages read.
